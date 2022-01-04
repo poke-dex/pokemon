@@ -20,8 +20,14 @@ pokeDex.getTypeList = () => {
             return results.json();
         })
         .then((data) => {
-            console.log(data)
+            pokeDex.getTypes(data.results)
         })
+}
+
+pokeDex.getTypes = (types) => {
+    types.forEach( (types) => {
+        console.log(types.name)
+    })
 }
 
 // create a getData method to request the correct info from the api
