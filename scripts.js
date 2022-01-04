@@ -25,8 +25,12 @@ pokeDex.getTypeList = () => {
 }
 
 pokeDex.getTypes = (types) => {
+    const typeListContainer = document.querySelector("#typeList")
     types.forEach( (types) => {
-        console.log(types.name)
+        const typeOption = document.createElement("option")
+        typeOption.classList.add(types.name)
+        typeOption.innerText = types.name
+        typeListContainer.appendChild(typeOption)
     })
 }
 
