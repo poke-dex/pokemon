@@ -10,6 +10,7 @@ const pokeDex = {};
 pokeDex.init = () => {
     // call our getData method
     pokeDex.getTypeList();
+    pokeDex.getDamageRelations();
 }
 
 pokeDex.getTypeList = () => {
@@ -34,8 +35,15 @@ pokeDex.getTypes = (types) => {
     })
 }
 
+pokeDex.getDamageRelations = (type) => {
+    const selectElement = document.querySelector("select");
+    selectElement.addEventListener("change", (event) => {
+        console.log(event.target.value);
+    })
+}
+
 // create a getData method to request the correct info from the api
-// - user selects a type and uses the submit button to finalize selection, an event listener will wait for the submission and return two values in double damage from and double damage to
+// - user selects a type and uses the submit button to finalize selection, an event listener (possibly "change" instead of "submit") will wait for the submission and return two values in double damage from and double damage to
 // damage_relations
 // - double_damage_from
 // - double_damage_to
