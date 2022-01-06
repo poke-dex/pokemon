@@ -10,7 +10,7 @@ const pokeDex = {};
 pokeDex.init = () => {
     // call our getData method
     pokeDex.getTypeList();
-    pokeDex.getDamageRelations();
+    pokeDex.getSelectType();
 }
 
 pokeDex.getTypeList = () => {
@@ -35,11 +35,35 @@ pokeDex.getTypes = (types) => {
     })
 }
 
-pokeDex.getDamageRelations = (type) => {
+pokeDex.getSelectType = () => {
     const selectElement = document.querySelector("select");
     selectElement.addEventListener("change", (event) => {
-        console.log(event.target.value);
+        pokeDex.getDamageRelations(event.target.value);
     })
+}
+
+pokeDex.getDamageRelations = (type) => {
+    const url = new URL(`https://pokeapi.co/api/v2/type/${type}`)
+    const doubleDamageToList = document.querySelector(".doubleDamageTo")
+    const doubleDamageFromList = document.querySelector(".doubleDamageFrom")
+    fetch(url)
+        .then((results) => {
+            return results.json();
+        })
+        .then((data) => {
+            data.damage_relations.double_damage_to.forEach((type) => {
+                const damageToList = document.createElement("li");
+                damageToList.innerText = type.name;
+                doubleDamageToList.appendChild(damageToList)
+            })
+            
+            data.damage_relations.double_damage_from.forEach((type) => {
+                const damageFromList = document.createElement("li");
+                damageFromList.innerText = type.name;
+                doubleDamageFromList.appendChild(damageFromList);
+            })
+        })
+
 }
 
 // create a getData method to request the correct info from the api
