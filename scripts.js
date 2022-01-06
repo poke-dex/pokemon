@@ -35,6 +35,7 @@ pokeDex.getTypes = (types) => {
 }
 
 // create a getData method to request the correct info from the api
+// - user selects a type and uses the submit button to finalize selection, an event listener will wait for the submission and return two values in double damage from and double damage to
 // damage_relations
 // - double_damage_from
 // - double_damage_to
