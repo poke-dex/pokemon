@@ -50,8 +50,15 @@ pokeDex.getSelectType = () => {
 
 pokeDex.getDamageRelations = (type) => {
     const url = new URL(`https://pokeapi.co/api/v2/type/${type}`)
+
     const doubleDamageToList = document.querySelector(".doubleDamageTo")
     const doubleDamageFromList = document.querySelector(".doubleDamageFrom")
+
+    const halfDamageToList = document.querySelector(".halfDamageTo")
+    const halfDamageFromList = document.querySelector(".halfDamageFrom")
+    
+    const noDamageToList = document.querySelector(".noDamageTo")
+    const noDamageFromList = document.querySelector(".noDamageFrom")
 
     doubleDamageToList.innerHTML = "";
     doubleDamageFromList.innerHTML = "";
@@ -73,6 +80,37 @@ pokeDex.getDamageRelations = (type) => {
                 damageFromList.innerText = type.name;
                 doubleDamageFromList.appendChild(damageFromList);
             })
+
+
+
+
+            data.damage_relations.half_damage_to.forEach((type) => {
+
+                const damageToList = document.createElement("li");
+                damageToList.innerText = type.name;
+                halfDamageToList.appendChild(damageToList)
+            })
+
+            data.damage_relations.half_damage_from.forEach((type) => {
+                const damageFromList = document.createElement("li");
+                damageFromList.innerText = type.name;
+                halfDamageFromList.appendChild(damageFromList);
+            })
+
+            data.damage_relations.no_damage_to.forEach((type) => {
+
+                const damageToList = document.createElement("li");
+                damageToList.innerText = type.name;
+                noDamageToList.appendChild(damageToList)
+            })
+
+            data.damage_relations.no_damage_from.forEach((type) => {
+                const damageFromList = document.createElement("li");
+                damageFromList.innerText = type.name;
+                noDamageFromList.appendChild(damageFromList);
+            })
+
+
         })
 
 }
