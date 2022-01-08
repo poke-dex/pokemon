@@ -5,13 +5,15 @@
 
 const pokeDex = {};
 
-// - create the init method on namespace object
+// create the init method on namespace object
 
 pokeDex.init = () => {
     // call our getData method
     pokeDex.getTypeList();
     pokeDex.getSelectType();
 }
+
+// returning an array with all the different unique types of pokemon
 
 pokeDex.getTypeList = () => {
     const url = new URL('https://pokeapi.co/api/v2/type')
@@ -21,7 +23,7 @@ pokeDex.getTypeList = () => {
             return results.json();
         })
         .then((data) => {
-            // console.log(data.results);
+            // removes the unknown and shadow types since they don't exist in the core games
             const filterTypes = data.results.filter( (type) => {
                 if (type.name !== "unknown" && type.name !== "shadow") {
                     return true;
@@ -31,6 +33,8 @@ pokeDex.getTypeList = () => {
         })
 }
 
+
+// adds each of the types from the getTypes function to the select list
 pokeDex.getTypes = (types) => {
     const typeListContainer = document.querySelector("#typeList")
     types.forEach( (types) => {
@@ -41,6 +45,7 @@ pokeDex.getTypes = (types) => {
     })
 }
 
+// event listener for changes to the select list
 pokeDex.getSelectType = () => {
     const selectElement = document.querySelector("select");
     selectElement.addEventListener("change", (event) => {
@@ -48,6 +53,7 @@ pokeDex.getSelectType = () => {
     })
 }
 
+// for the selected type, gets all the damage relations info from the api
 pokeDex.getDamageRelations = (type) => {
     const url = new URL(`https://pokeapi.co/api/v2/type/${type}`)
 
@@ -60,16 +66,23 @@ pokeDex.getDamageRelations = (type) => {
     const noDamageToList = document.querySelector(".noDamageTo")
     const noDamageFromList = document.querySelector(".noDamageFrom")
 
+    // clears the innerHTML for each of the damage relations catagories
     doubleDamageToList.innerHTML = "";
     doubleDamageFromList.innerHTML = "";
+
+    halfDamageToList.innerHTML = "";
+    halfDamageFromList.innerHTML = "";
+
+    noDamageToList.innerHTML = "";
+    noDamageFromList.innerHTML = "";
 
     fetch(url)
         .then((results) => {
             return results.json();
         })
         .then((data) => {
+            // for each damage relations catagory, creates a li element for each returned type
             data.damage_relations.double_damage_to.forEach((type) => {
-                
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
                 doubleDamageToList.appendChild(damageToList)
@@ -81,11 +94,7 @@ pokeDex.getDamageRelations = (type) => {
                 doubleDamageFromList.appendChild(damageFromList);
             })
 
-
-
-
             data.damage_relations.half_damage_to.forEach((type) => {
-
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
                 halfDamageToList.appendChild(damageToList)
@@ -98,7 +107,6 @@ pokeDex.getDamageRelations = (type) => {
             })
 
             data.damage_relations.no_damage_to.forEach((type) => {
-
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
                 noDamageToList.appendChild(damageToList)
@@ -110,16 +118,9 @@ pokeDex.getDamageRelations = (type) => {
                 noDamageFromList.appendChild(damageFromList);
             })
 
-
         })
 
 }
-
-// create a getData method to request the correct info from the api
-// - user selects a type and uses the submit button to finalize selection, an event listener (possibly "change" instead of "submit") will wait for the submission and return two values in double damage from and double damage to
-// damage_relations
-// - double_damage_from
-// - double_damage_to
 
 // call the init method at the end
 
