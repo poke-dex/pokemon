@@ -21,7 +21,13 @@ pokeDex.getTypeList = () => {
             return results.json();
         })
         .then((data) => {
-            pokeDex.getTypes(data.results)
+            // console.log(data.results);
+            const filterTypes = data.results.filter( (type) => {
+                if (type.name !== "unknown" && type.name !== "shadow") {
+                    return true;
+                }
+            })
+            pokeDex.getTypes(filterTypes)
         })
 }
 
@@ -46,12 +52,17 @@ pokeDex.getDamageRelations = (type) => {
     const url = new URL(`https://pokeapi.co/api/v2/type/${type}`)
     const doubleDamageToList = document.querySelector(".doubleDamageTo")
     const doubleDamageFromList = document.querySelector(".doubleDamageFrom")
+
+    // doubleDamageToList.innerHTML = "";
+    // doubleDamageFromList.innerHTML = "";
+
     fetch(url)
         .then((results) => {
             return results.json();
         })
         .then((data) => {
             data.damage_relations.double_damage_to.forEach((type) => {
+                
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
                 doubleDamageToList.appendChild(damageToList)
