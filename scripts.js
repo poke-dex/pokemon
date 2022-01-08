@@ -53,8 +53,8 @@ pokeDex.getDamageRelations = (type) => {
     const doubleDamageToList = document.querySelector(".doubleDamageTo")
     const doubleDamageFromList = document.querySelector(".doubleDamageFrom")
 
-    // doubleDamageToList.innerHTML = "";
-    // doubleDamageFromList.innerHTML = "";
+    doubleDamageToList.innerHTML = "";
+    doubleDamageFromList.innerHTML = "";
 
     fetch(url)
         .then((results) => {
