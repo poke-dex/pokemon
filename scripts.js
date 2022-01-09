@@ -39,8 +39,7 @@ pokeDex.getTypes = (types) => {
     const typeListContainer = document.querySelector("#typeList")
     types.forEach( (types) => {
         const typeOption = document.createElement("option")
-        typeOption.classList.add(types.name)
-        typeOption.innerText = types.name
+        typeOption.innerText = types.name;
         typeListContainer.appendChild(typeOption)
     })
 }
@@ -85,36 +84,42 @@ pokeDex.getDamageRelations = (type) => {
             data.damage_relations.double_damage_to.forEach((type) => {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
+                damageToList.classList.add(type.name)
                 doubleDamageToList.appendChild(damageToList)
             })
             
             data.damage_relations.double_damage_from.forEach((type) => {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = type.name;
+                damageFromList.classList.add(type.name)
                 doubleDamageFromList.appendChild(damageFromList);
             })
 
             data.damage_relations.half_damage_to.forEach((type) => {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
+                damageToList.classList.add(type.name)
                 halfDamageToList.appendChild(damageToList)
             })
 
             data.damage_relations.half_damage_from.forEach((type) => {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = type.name;
+                damageFromList.classList.add(type.name)
                 halfDamageFromList.appendChild(damageFromList);
             })
 
             data.damage_relations.no_damage_to.forEach((type) => {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = type.name;
+                damageToList.classList.add(type.name)
                 noDamageToList.appendChild(damageToList)
             })
 
             data.damage_relations.no_damage_from.forEach((type) => {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = type.name;
+                damageFromList.classList.add(type.name)
                 noDamageFromList.appendChild(damageFromList);
             })
 
