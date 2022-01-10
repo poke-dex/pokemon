@@ -189,6 +189,25 @@ pokeDex.getDamageRelations = (type) => {
 
 }
 
+// takes an id of an element you want to input text into, takes the text you want to add and takes the interval. adds the text to the element, one letter at a time. 
+const letterAtATime = (targetID, text, interval) => {
+    const targetElement = document.getElementById(targetID);
+    let indexCounter = 0;
+    setInterval(() => {
+        if (indexCounter < text.length) {
+            // const letter = document.createTextNode(text[indexCounter])
+            // targetElement.appendChild(letter);
+            targetElement.textContent += text[indexCounter];
+            indexCounter++;
+        }
+        else {
+            clearInterval();
+        }
+    }, interval)
+
+}
+letterAtATime("target", "Select a pokemon type to see how it damages other types", 75);
+
 // call the init method at the end
 
 pokeDex.init();
