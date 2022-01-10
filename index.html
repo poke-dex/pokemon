@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
 </head>
+
 <body>
-    <h1>Pokedex</h1>
-    
-    <label for="typeList">Select a Type</label>
-    <select name="typeList" id="typeList">
-        <option value="" default hidden>choose here</option>
-    </select>
-    <h2>Double damage to</h2>
-    <ul class="doubleDamageTo">
-        
-    </ul>
-    <h2>Double damage from</h2>
-    <ul class="doubleDamageFrom">
-        
-    </ul>
+    <header>
+        <div class="wrapper">
+            <h1>
+                <img src="./assets/pokemonLogo.png" alt="pokemon logo">
+            </h1>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            <form action="">
+                <label for="typeList">Select a pokemon type</label>
+                <select name="typeList" id="typeList">
+                    <option value="" default hidden>choose here</option>
+                </select>
+            </form>
 
-    <h2>Half damage to</h2>
-    <ul class="halfDamageTo">
-    
-    </ul>
+            <h2>Double damage to</h2>
+            <ul class="doubleDamageTo">
 
-    <h2>Half damage from</h2>
-    <ul class="halfDamageFrom">
-    
-    </ul>
+            </ul>
+            <h2>Double damage from</h2>
+            <ul class="doubleDamageFrom">
 
-    <h2>No damage to</h2>
-    <ul class="noDamageTo">
-    
-    </ul>
+            </ul>
 
-    <h2>No damage from</h2>
-    <ul class="noDamageFrom">
-    
-    </ul>
+            <h2>Half damage to</h2>
+            <ul class="halfDamageTo">
 
+            </ul>
+
+            <h2>Half damage from</h2>
+            <ul class="halfDamageFrom">
+
+            </ul>
+
+            <h2>No damage to</h2>
+            <ul class="noDamageTo">
+
+            </ul>
+
+            <h2>No damage from</h2>
+            <ul class="noDamageFrom">
+
+            </ul>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
     <script src="scripts.js"></script>
 </body>
+
 </html>

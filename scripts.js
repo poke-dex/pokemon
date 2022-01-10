@@ -20,7 +20,12 @@ pokeDex.getTypeList = () => {
     
     fetch(url)
         .then((results) => {
-            return results.json();
+            if (results.ok){
+                return results.json();
+            } else {
+                throw new Error("The call to the PokeAPI wasn't successful");
+            }
+            
         })
         .then((data) => {
             // removes the unknown and shadow types since they don't exist in the core games
@@ -29,7 +34,10 @@ pokeDex.getTypeList = () => {
                     return true;
                 }
             })
-            pokeDex.getTypes(filterTypes)
+            pokeDex.getTypes(filterTypes);
+        })
+        .catch((error) => {
+            console.log(error);
         })
 }
 
@@ -39,8 +47,7 @@ pokeDex.getTypes = (types) => {
     const typeListContainer = document.querySelector("#typeList")
     types.forEach( (types) => {
         const typeOption = document.createElement("option")
-        typeOption.classList.add(types.name)
-        typeOption.innerText = types.name
+        typeOption.innerText = types.name;
         typeListContainer.appendChild(typeOption)
     })
 }
@@ -78,46 +85,106 @@ pokeDex.getDamageRelations = (type) => {
 
     fetch(url)
         .then((results) => {
-            return results.json();
+            if (results.ok) {
+                return results.json();
+            } else {
+                throw new Error("The call to the PokeAPI wasn't successful");
+            }
         })
         .then((data) => {
             // for each damage relations catagory, creates a li element for each returned type
-            data.damage_relations.double_damage_to.forEach((type) => {
+
+            if (data.damage_relations.double_damage_to != ""){
+                data.damage_relations.double_damage_to.forEach((type) => {
+                    const damageToList = document.createElement("li");
+                    damageToList.innerText = type.name;
+                    damageToList.classList.add(type.name)
+                    doubleDamageToList.appendChild(damageToList)
+                })
+            } else {
                 const damageToList = document.createElement("li");
-                damageToList.innerText = type.name;
-                doubleDamageToList.appendChild(damageToList)
-            })
-            
-            data.damage_relations.double_damage_from.forEach((type) => {
+                damageToList.innerText = "None";
+                doubleDamageToList.appendChild(damageToList);
+            }
+
+           
+
+            if (data.damage_relations.double_damage_from != ""){
+                data.damage_relations.double_damage_from.forEach((type) => {
+                    const damageFromList = document.createElement("li");
+                    damageFromList.innerText = type.name;
+                    damageFromList.classList.add(type.name)
+                    doubleDamageFromList.appendChild(damageFromList);
+                })
+            } else {
                 const damageFromList = document.createElement("li");
-                damageFromList.innerText = type.name;
+                damageFromList.innerText = "None";
                 doubleDamageFromList.appendChild(damageFromList);
-            })
+            }
+            
+            
 
-            data.damage_relations.half_damage_to.forEach((type) => {
+
+            if (data.damage_relations.half_damage_to != ""){
+                data.damage_relations.half_damage_to.forEach((type) => {
+                    const damageToList = document.createElement("li");
+                    damageToList.innerText = type.name;
+                    damageToList.classList.add(type.name)
+                    halfDamageToList.appendChild(damageToList)
+                })
+            } else {
                 const damageToList = document.createElement("li");
-                damageToList.innerText = type.name;
-                halfDamageToList.appendChild(damageToList)
-            })
+                damageToList.innerText = "None";
+                halfDamageToList.appendChild(damageToList);
+            }
 
-            data.damage_relations.half_damage_from.forEach((type) => {
+            
+
+            if (data.damage_relations.half_damage_from != ""){
+                data.damage_relations.half_damage_from.forEach((type) => {
+                    const damageFromList = document.createElement("li");
+                    damageFromList.innerText = type.name;
+                    damageFromList.classList.add(type.name)
+                    halfDamageFromList.appendChild(damageFromList);
+                })
+            } else {
                 const damageFromList = document.createElement("li");
-                damageFromList.innerText = type.name;
+                damageFromList.innerText = "None";
                 halfDamageFromList.appendChild(damageFromList);
-            })
-
-            data.damage_relations.no_damage_to.forEach((type) => {
+            }
+            
+            if (data.damage_relations.no_damage_to != ""){
+                data.damage_relations.no_damage_to.forEach((type) => {
+                    const damageToList = document.createElement("li");
+                    damageToList.innerText = type.name;
+                    damageToList.classList.add(type.name)
+                    noDamageToList.appendChild(damageToList)
+                })
+            } else {
                 const damageToList = document.createElement("li");
-                damageToList.innerText = type.name;
-                noDamageToList.appendChild(damageToList)
-            })
+                damageToList.innerText = "None";
+                noDamageToList.appendChild(damageToList);
+            }
 
-            data.damage_relations.no_damage_from.forEach((type) => {
+            
+            if (data.damage_relations.no_damage_from != ""){
+                data.damage_relations.no_damage_from.forEach((type) => {
+                    const damageFromList = document.createElement("li");
+                    damageFromList.innerText = type.name;
+                    damageFromList.classList.add(type.name)
+                    noDamageFromList.appendChild(damageFromList);
+                })
+            } else {
                 const damageFromList = document.createElement("li");
-                damageFromList.innerText = type.name;
+                damageFromList.innerText = "None";
                 noDamageFromList.appendChild(damageFromList);
-            })
 
+            }
+           
+
+        })
+        .catch((error) => {
+            console.log(error);
         })
 
 }
