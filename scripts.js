@@ -104,6 +104,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 doubleDamageToList.appendChild(damageToList);
             }
 
@@ -119,6 +120,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 doubleDamageFromList.appendChild(damageFromList);
             }
             
@@ -135,6 +137,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 halfDamageToList.appendChild(damageToList);
             }
 
@@ -150,6 +153,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 halfDamageFromList.appendChild(damageFromList);
             }
             
@@ -163,6 +167,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 noDamageToList.appendChild(damageToList);
             }
 
@@ -177,6 +182,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 noDamageFromList.appendChild(damageFromList);
 
             }
@@ -206,7 +212,7 @@ const letterAtATime = (targetID, text, interval) => {
     }, interval)
 
 }
-letterAtATime("target", "Select a pokemon type to see how it damages other types", 75);
+letterAtATime("target", "Select a pokemon type to see how effective it is against other types", 75);
 
 // call the init method at the end
 

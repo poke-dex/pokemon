@@ -1,11 +1,11 @@
 h1 {
-    margin: 50px 25px 25px 25px;
+    margin: 100px 25px 25px 25px;
 }
 
 h2 {
     font-family: "Press Start 2P", sans-serif;
     font-size: 1.6rem;
-    margin: 15px;
+    margin: 25px 10px;
     text-align: center;
 }
 
@@ -14,4 +14,10 @@ p {
     font-size: 1rem;
     text-align: center;
     text-transform: uppercase;
+    margin: 20px 0;
+}
+
+header p {
+    min-height: 100px;
+    margin-bottom: 0px;
 }

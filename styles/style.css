@@ -188,13 +188,13 @@ td, th {
 }
 
 h1 {
-  margin: 50px 25px 25px 25px;
+  margin: 100px 25px 25px 25px;
 }
 
 h2 {
   font-family: "Press Start 2P", sans-serif;
   font-size: 1.6rem;
-  margin: 15px;
+  margin: 25px 10px;
   text-align: center;
 }
 
@@ -203,6 +203,12 @@ p {
   font-size: 1rem;
   text-align: center;
   text-transform: uppercase;
+  margin: 20px 0;
+}
+
+header p {
+  min-height: 100px;
+  margin-bottom: 0px;
 }
 
 html, body {
@@ -222,7 +228,7 @@ img {
 form {
   font-family: "Changa", sans-serif;
   font-size: 1.6rem;
-  margin: 25px 0 50px 0;
+  margin-bottom: 35px;
 }
 
 select {
@@ -268,8 +274,34 @@ li {
   min-width: 235px;
   padding: 10px 0;
   margin: 10px;
-  background-color: grey;
+  background-color: #2576bc;
   border-radius: 10px;
+  -webkit-box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.damageRelationsGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.damageRelationsCatergory {
+  width: calc((100% / 2) - 20px);
+  -webkit-box-shadow: -5px 5px #1b356e;
+          box-shadow: -5px 5px #1b356e;
 }
 
 .normal {
@@ -344,18 +376,74 @@ li {
   background-color: #d685ad;
 }
 
-@media (max-width: 768px) {
+.none {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (max-width: 900px) {
   h2 {
     text-align: center;
+    font-size: 1rem;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  form {
+    text-align: center;
+    font-size: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  footer p {
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 630px) {
+  .damageRelationsGallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .damageRelationsCatergory {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  header p {
+    margin-bottom: 10px;
   }
 
   form {
-    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  footer {
+    margin: 0px;
   }
 }
 footer {
   text-align: center;
   font-family: "Changa", sans-serif;
   font-size: 1rem;
-  margin: 50px 0px 25px 0px;
+  margin: 100px 0px 25px 0px;
 }
