@@ -11,6 +11,10 @@ html,body
     font-size:125%;
 }
 
+body {
+    background-color: rgba(254, 200, 50, 0.7);
+}
+
 img {
     width: 100%;
     height: auto;
@@ -19,7 +23,7 @@ img {
 form {
     font-family: 'Changa', sans-serif;
     font-size: 1.6rem;
-    margin-bottom: 35px;
+    margin: 25px 0 35px 0;
 }
 
 select {

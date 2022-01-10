@@ -187,8 +187,15 @@ td, th {
   padding: 0;
 }
 
+header {
+  background-image: url(../assets/headerBackground.jpg);
+  background-size: cover;
+  background-position: 75%;
+}
+
 h1 {
-  margin: 100px 25px 25px 25px;
+  margin: 0px 25px 25px 25px;
+  padding-top: 100px;
 }
 
 h2 {
@@ -220,6 +227,10 @@ html, body {
   font-size: 125%;
 }
 
+body {
+  background-color: rgba(254, 200, 50, 0.7);
+}
+
 img {
   width: 100%;
   height: auto;
@@ -228,7 +239,7 @@ img {
 form {
   font-family: "Changa", sans-serif;
   font-size: 1.6rem;
-  margin-bottom: 35px;
+  margin: 25px 0 35px 0;
 }
 
 select {

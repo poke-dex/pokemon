@@ -93,6 +93,7 @@ pokeDex.getDamageRelations = (type) => {
         })
         .then((data) => {
             // for each damage relations catagory, creates a li element for each returned type
+            // If no type is returned add an li with class none
 
             if (data.damage_relations.double_damage_to != ""){
                 data.damage_relations.double_damage_to.forEach((type) => {
@@ -201,8 +202,6 @@ const letterAtATime = (targetID, text, interval) => {
     let indexCounter = 0;
     setInterval(() => {
         if (indexCounter < text.length) {
-            // const letter = document.createTextNode(text[indexCounter])
-            // targetElement.appendChild(letter);
             targetElement.textContent += text[indexCounter];
             indexCounter++;
         }
