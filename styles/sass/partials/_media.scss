@@ -1,0 +1,64 @@
+@media (min-width: 1440px) {
+    h1 {
+        margin-bottom: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    h2 {
+        text-align: center;
+        font-size: 1rem;
+    }
+     li {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 832px) {
+    header p {
+        min-height: 75px;
+    }
+}
+
+@media (max-width: 768px) {
+    form {
+        text-align: center;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    footer p {
+        font-size: 0.5rem;
+    }
+
+}
+
+@media (max-width: 630px) {
+    .damageRelationsGallery {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .damageRelationsCatergory {
+    width: 100%;
+    margin: 10px 0;
+    }
+
+}
+
+@media (max-width: 450px) {
+    header p {
+        margin-bottom: 10px;
+    }
+    form {
+        margin-bottom: 20px;
+    }
+    footer {
+        margin: 0px;
+    }
+}

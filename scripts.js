@@ -93,6 +93,7 @@ pokeDex.getDamageRelations = (type) => {
         })
         .then((data) => {
             // for each damage relations catagory, creates a li element for each returned type
+            // If no type is returned add an li with class none
 
             if (data.damage_relations.double_damage_to != ""){
                 data.damage_relations.double_damage_to.forEach((type) => {
@@ -104,6 +105,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 doubleDamageToList.appendChild(damageToList);
             }
 
@@ -119,6 +121,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 doubleDamageFromList.appendChild(damageFromList);
             }
             
@@ -135,6 +138,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 halfDamageToList.appendChild(damageToList);
             }
 
@@ -150,6 +154,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 halfDamageFromList.appendChild(damageFromList);
             }
             
@@ -163,6 +168,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageToList = document.createElement("li");
                 damageToList.innerText = "None";
+                damageToList.classList.add("none");
                 noDamageToList.appendChild(damageToList);
             }
 
@@ -177,6 +183,7 @@ pokeDex.getDamageRelations = (type) => {
             } else {
                 const damageFromList = document.createElement("li");
                 damageFromList.innerText = "None";
+                damageFromList.classList.add("none");
                 noDamageFromList.appendChild(damageFromList);
 
             }
@@ -188,6 +195,23 @@ pokeDex.getDamageRelations = (type) => {
         })
 
 }
+
+// takes an id of an element you want to input text into, takes the text you want to add and takes the interval. adds the text to the element, one letter at a time. 
+const letterAtATime = (targetID, text, interval) => {
+    const targetElement = document.getElementById(targetID);
+    let indexCounter = 0;
+    setInterval(() => {
+        if (indexCounter < text.length) {
+            targetElement.textContent += text[indexCounter];
+            indexCounter++;
+        }
+        else {
+            clearInterval();
+        }
+    }, interval)
+
+}
+letterAtATime("target", "Select a pokemon type to see how effective it is against other types", 75);
 
 // call the init method at the end
 

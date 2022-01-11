@@ -187,15 +187,41 @@ td, th {
   padding: 0;
 }
 
+header {
+  background-image: url(../assets/headerBackground.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 25px;
+}
+
 h1 {
-  margin: 50px 25px 25px 25px;
+  margin: 0px 25px 200px 25px;
+  padding-top: 20px;
 }
 
 h2 {
   font-family: "Press Start 2P", sans-serif;
   font-size: 1.6rem;
-  margin: 15px;
+  margin: 25px 10px;
   text-align: center;
+}
+
+p {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+}
+
+header p {
+  padding: 15px;
+  margin: 10px;
+  background-color: #2576bc;
+  border-radius: 10px;
+  -webkit-box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+  min-height: 75px;
 }
 
 html, body {
@@ -207,6 +233,10 @@ html, body {
   font-size: 125%;
 }
 
+body {
+  background-color: #7dad71;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -215,11 +245,13 @@ img {
 form {
   font-family: "Changa", sans-serif;
   font-size: 1.6rem;
-  margin: 25px 0 50px 0;
-  text-align: center;
+  margin: 25px 0 35px 0;
 }
-form option {
-  text-transform: capitalize;
+
+select {
+  min-width: 250px;
+  text-align: center;
+  margin: 10px;
 }
 
 ul,
@@ -259,8 +291,34 @@ li {
   min-width: 235px;
   padding: 10px 0;
   margin: 10px;
-  background-color: grey;
+  background-color: #2576bc;
   border-radius: 10px;
+  -webkit-box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+}
+
+.damageRelationsGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.damageRelationsCatergory {
+  width: calc((100% / 2) - 20px);
+  -webkit-box-shadow: -5px 5px #1b356e;
+          box-shadow: -5px 5px #1b356e;
 }
 
 .normal {
@@ -333,4 +391,86 @@ li {
 
 .fairy {
   background-color: #d685ad;
+}
+
+.none {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media (min-width: 1440px) {
+  h1 {
+    margin-bottom: 300px;
+  }
+}
+@media (max-width: 900px) {
+  h2 {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  li {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 832px) {
+  header p {
+    min-height: 75px;
+  }
+}
+@media (max-width: 768px) {
+  form {
+    text-align: center;
+    font-size: 1rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  footer p {
+    font-size: 0.5rem;
+  }
+}
+@media (max-width: 630px) {
+  .damageRelationsGallery {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .damageRelationsCatergory {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+@media (max-width: 450px) {
+  header p {
+    margin-bottom: 10px;
+  }
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  footer {
+    margin: 0px;
+  }
+}
+footer {
+  text-align: center;
+  font-family: "Changa", sans-serif;
+  font-size: 1rem;
+  margin: 100px 0px 25px 0px;
 }
