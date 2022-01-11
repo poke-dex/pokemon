@@ -1,3 +1,9 @@
+@media (min-width: 1440px) {
+    h1 {
+        margin-bottom: 300px;
+    }
+}
+
 @media (max-width: 900px) {
     h2 {
         text-align: center;
@@ -5,6 +11,12 @@
     }
      li {
         font-size: 1rem;
+    }
+}
+
+@media (max-width: 832px) {
+    header p {
+        min-height: 75px;
     }
 }
 

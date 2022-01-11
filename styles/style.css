@@ -190,12 +190,13 @@ td, th {
 header {
   background-image: url(../assets/headerBackground.jpg);
   background-size: cover;
-  background-position: 75%;
+  background-position: center;
+  padding-bottom: 25px;
 }
 
 h1 {
-  margin: 0px 25px 25px 25px;
-  padding-top: 100px;
+  margin: 0px 25px 200px 25px;
+  padding-top: 20px;
 }
 
 h2 {
@@ -210,12 +211,17 @@ p {
   font-size: 1rem;
   text-align: center;
   text-transform: uppercase;
-  margin: 20px 0;
+  color: white;
 }
 
 header p {
-  min-height: 100px;
-  margin-bottom: 0px;
+  padding: 15px;
+  margin: 10px;
+  background-color: #2576bc;
+  border-radius: 10px;
+  -webkit-box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+          box-shadow: -5px 5px 2px rgba(0, 0, 0, 0.5);
+  min-height: 75px;
 }
 
 html, body {
@@ -228,7 +234,7 @@ html, body {
 }
 
 body {
-  background-color: rgba(254, 200, 50, 0.7);
+  background-color: #7dad71;
 }
 
 img {
@@ -392,6 +398,11 @@ li {
           box-shadow: none;
 }
 
+@media (min-width: 1440px) {
+  h1 {
+    margin-bottom: 300px;
+  }
+}
 @media (max-width: 900px) {
   h2 {
     text-align: center;
@@ -400,6 +411,11 @@ li {
 
   li {
     font-size: 1rem;
+  }
+}
+@media (max-width: 832px) {
+  header p {
+    min-height: 75px;
   }
 }
 @media (max-width: 768px) {
