@@ -211,7 +211,7 @@ const letterAtATime = (targetID, text, interval) => {
     }, interval)
 
 }
-letterAtATime("target", "Select a pokemon type to see how effective it is against other types", 75);
+letterAtATime("target", "Select a pokemon type to see how effective it is against other types", 50);
 
 // call the init method at the end
 
